@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Powell's Kitchen | Luxury Dining Menu</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Hero Header -->
+    <header class="hero">
+      <div class="hero-overlay">
+        <span class="tagline">EST. 2026 • FINE DINING EXPERIENCE</span>
+        <h1>Powell's Kitchen</h1>
+        <p>Where Culinary Art Meets Unforgettable Taste</p>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- Search & Filter Controls -->
+      <div class="controls-wrapper">
+        <div class="search-box">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search dishes (e.g. Burger, Latte)..."
+            onkeyup="searchMenu()"
+          />
+        </div>
+
+        <div class="filter-buttons">
+          <button class="filter-btn active" onclick="filterMenu('all', this)">
+            All Menu
+          </button>
+          <button class="filter-btn" onclick="filterMenu('main', this)">
+            Main Courses
+          </button>
+          <button class="filter-btn" onclick="filterMenu('starters', this)">
+            Starters & Sides
+          </button>
+          <button class="filter-btn" onclick="filterMenu('drinks', this)">
+            Signature Drinks
+          </button>
+          <button class="filter-btn" onclick="filterMenu('desserts', this)">
+            Desserts
+          </button>
+        </div>
+      </div>
+
+      <!-- Menu Grid -->
+      <div class="menu-grid" id="menu-grid">
+        <!-- Main Courses -->
+        <div class="menu-item" data-category="main">
+          <div class="badge chef-special">Chef's Special</div>
+          <div class="item-info">
+            <h3>Grilled Garlic Herb Chicken</h3>
+            <p>
+              Tender chicken breast marinated with rosemary, roasted garlic,
+              served with creamy truffle mashed potatoes.
+            </p>
+          </div>
+          <div class="item-footer">
+            <span class="price">8,500 MMK</span>
+            <button
+              class="order-btn"
+              onclick="addToOrder('Grilled Garlic Herb Chicken', 8500)"
+            >
+              + Add to Order
+            </button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="main">
+          <div class="badge popular">Best Seller</div>
+          <div class="item-info">
+            <h3>Wagyu Classic Beef Burger</h3>
+            <p>
+              Juicy premium beef patty, aged cheddar cheese, caramelized onions,
+              crisp lettuce, and smoky house sauce.
+            </p>
+          </div>
+          <div class="item-footer">
+            <span class="price">9,500 MMK</span>
+            <button
+              class="order-btn"
+              onclick="addToOrder('Wagyu Classic Beef Burger', 9500)"
+            >
+              + Add to Order
+            </button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="main">
+          <div class="item-info">
+            <h3>Royal Seafood Fried Rice</h3>
+            <p>
+              Fragrant jasmine rice wok-tossed with tiger prawns, calamari,
+              organic eggs, and aromatic herbs.
+            </p>
+          </div>
+          <div class="item-footer">
+            <span class="price">7,000 MMK</span>
+            <button
+              class="order-btn"
+              onclick="addToOrder('Royal Seafood Fried Rice', 7000)"
+            >
+              + Add to Order
+            </button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="main">
+          <div class="badge spicy">Spicy</div>
+          <div class="item-info">
+            <h3>Spicy Holy Basil Pork</h3>
+            <p>
+              Minced pork stir-fried with wild holy basil, bird's eye chilies,
+              and garlic, crowned with a crispy fried egg.
+            </p>
+          </div>
+          <div class="item-footer">
+            <span class="price">6,000 MMK</span>
+            <button
+              class="order-btn"
+              onclick="addToOrder('Spicy Holy Basil Pork', 6000)"
+            >
+              + Add to Order
+            </button>
+          </div>
+        </div>
+
+        <!-- Starters -->
+        <div class="menu-item" data-category="starters">
+          <div class="item-info">
+            <h3>Crispy Truffle Parmesan Fries</h3>
+            <p>
+              Golden hand-cut fries tossed in white truffle oil, grated parmesan
+              cheese, and fresh parsley.
+            </p>
+          </div>
+          <div class="item-footer">
+            <span class="price">4,500 MMK</span>
+            <button
+              class="order-btn"
+              onclick="addToOrder('Crispy Truffle Parmesan Fries', 4500)"
+            >
+              + Add to Order
+            </button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="starters">
+          <div class="item-info">
+            <h3>Golden Calamari Rings</h3>
+            <p>
+              Lightly battered squid rings fried to perfection, served with
+              zesty garlic aioli dip.
+            </p>
+          </div>
+          <div class="item-footer">
+            <span class="price">5,500 MMK</span>
+            <button
+              class="order-btn"
+              onclick="addToOrder('Golden Calamari Rings', 5500)"
+            >
+              + Add to Order
+            </button>
+          </div>
+        </div>
+
+        <!-- Drinks -->
+        <div class="menu-item" data-category="drinks">
+          <div class="badge popular">Popular</div>
+          <div class="item-info">
+            <h3>Velvet Iced Caramel Latte</h3>
+            <p>
+              Double-shot Arabica espresso layered with silky cold milk and rich
+              salted caramel drizzle.
+            </p>
+          </div>
+          <div class="item-footer">
+            <span class="price">4,000 MMK</span>
+            <button
+              class="order-btn"
+              onclick="addToOrder('Velvet Iced Caramel Latte', 4000)"
+            >
+              + Add to Order
+            </button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="drinks">
+          <div class="item-info">
+            <h3>Sparkling Lemon Mint Mojito</h3>
+            <p>
+              Refreshing freshly squeezed lime, crushed garden mint leaves, and
+              chilled sparkling soda.
+            </p>
+          </div>
+          <div class="item-footer">
+            <span class="price">3,500 MMK</span>
+            <button
+              class="order-btn"
+              onclick="addToOrder('Sparkling Lemon Mint Mojito', 3500)"
+            >
+              + Add to Order
+            </button>
+          </div>
+        </div>
+        <!-- Extra Main Courses -->
+        <div class="menu-item" data-category="main">
+          <div class="badge chef-special">Chef's Choice</div>
+          <div class="item-info">
+            <h3>Pan-Seared Norwegian Salmon</h3>
+            <p>
+              Crispy skin salmon fillet served with lemon butter sauce, grilled
+              asparagus, and herb baby potatoes.
+            </p>
+          </div>
+          <div class="item-footer">
+            <span class="price">14,500 MMK</span>
+            <button
+              class="order-btn"
+              onclick="addToOrder('Pan-Seared Norwegian Salmon', 14500)"
+            >
+              + Add to Order
+            </button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="main">
+          <div class="badge spicy">Spicy</div>
+          <div class="item-info">
+            <h3>Creamy Tom Yum Seafood Pasta</h3>
+            <p>
+              Al dente spaghetti tossed in rich Thai Tom Yum cream sauce with
+              jumbo prawns and fresh mushrooms.
+            </p>
+          </div>
+          <div class="item-footer">
+            <span class="price">9,000 MMK</span>
+            <button
+              class="order-btn"
+              onclick="addToOrder('Creamy Tom Yum Seafood Pasta', 9000)"
+            >
+              + Add to Order
+            </button>
+          </div>
+        </div>
+
+        <!-- Extra Starters -->
+        <div class="menu-item" data-category="starters">
+          <div class="badge new">New</div>
+          <div class="item-info">
+            <h3>Roasted Pumpkin & Truffle Soup</h3>
+            <p>
+              Velvety roasted pumpkin soup finished with heavy cream, toasted
+              pumpkin seeds, and garlic croutons.
+            </p>
+          </div>
+          <div class="item-footer">
+            <span class="price">5,000 MMK</span>
+            <button
+              class="order-btn"
+              onclick="addToOrder('Roasted Pumpkin & Truffle Soup', 5000)"
+            >
+              + Add to Order
+            </button>
+          </div>
+        </div>
+
+        <!-- Extra Desserts -->
+        <div class="menu-item" data-category="desserts">
+          <div class="badge popular">Must Try</div>
+          <div class="item-info">
+            <h3>Classic Tiramisu</h3>
+            <p>
+              Layers of espresso-soaked ladyfingers and whipped mascarpone cream
+              dusted with rich cocoa powder.
+            </p>
+          </div>
+          <div class="item-footer">
+            <span class="price">5,500 MMK</span>
+            <button
+              class="order-btn"
+              onclick="addToOrder('Classic Tiramisu', 5500)"
+            >
+              + Add to Order
+            </button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="desserts">
+          <div class="item-info">
+            <h3>Molten Chocolate Lava Cake</h3>
+            <p>
+              Warm dark chocolate cake with a gooey molten center, served
+              alongside a scoop of Madagascar vanilla ice cream.
+            </p>
+          </div>
+          <div class="item-footer">
+            <span class="price">6,500 MMK</span>
+            <button
+              class="order-btn"
+              onclick="addToOrder('Molten Chocolate Lava Cake', 6500)"
+            >
+              + Add to Order
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Order Summary Cart -->
+      <section class="order-box">
+        <div class="order-header">
+          <h2>Your Dining Order</h2>
+          <span class="item-count" id="item-count">0 Items</span>
+        </div>
+
+        <ul id="order-list">
+          <li class="empty-msg">
+            Your plate is currently empty. Select a dish above to begin!
+          </li>
+        </ul>
+
+        <div class="total-section">
+          <div class="total-text">
+            <span>Total Amount</span>
+            <strong id="total-price">0 MMK</strong>
+          </div>
+          <div class="order-actions">
+            <button class="clear-btn" onclick="clearOrder()">Clear</button>
+            <button class="confirm-btn" onclick="confirmOrder()">
+              Confirm Order
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Order Confirmation Modal -->
+    <div id="order-modal" class="modal">
+      <div class="modal-content">
+        <div class="check-icon">✓</div>
+        <h2>Order Confirmed!</h2>
+        <p>
+          Thank you for dining with <strong>Powell's Kitchen</strong>. Your
+          delicious meal is being prepared by our chefs.
+        </p>
+        <div id="receipt-summary" class="receipt-box"></div>
+        <button class="confirm-btn" onclick="closeModal()">Done</button>
+      </div>
+    </div>
+
+    <footer>
+      <p>Open Daily: 10:00 AM - 10:00 PM • Yangon, Myanmar</p>
+      <p class="copyright">
+        © 2026 Powell's Kitchen. Crafted with passion by Powell.
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
